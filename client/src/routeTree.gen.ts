@@ -9,55 +9,149 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProfileIdUserRouteImport } from './routes/profile/$idUser'
+import { Route as AdminIdAdminRouteImport } from './routes/admin/$idAdmin'
+import { Route as ProfileCreditStatusIndexRouteImport } from './routes/profile/credit-status/index'
+import { Route as ProfileCreditRequestIndexRouteImport } from './routes/profile/credit-request/index'
+import { Route as KycIndentityVerificationIndexRouteImport } from './routes/kyc/indentity-verification/index'
+import { Route as KycFormIndexRouteImport } from './routes/kyc/form/index'
+import { Route as KycConfirmationIndexRouteImport } from './routes/kyc/confirmation/index'
+import { Route as AdminRequestsIdRequestRouteImport } from './routes/admin/requests/$idRequest'
 
-const ProfileRoute = ProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfileIdUserRoute = ProfileIdUserRouteImport.update({
+  id: '/profile/$idUser',
+  path: '/profile/$idUser',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIdAdminRoute = AdminIdAdminRouteImport.update({
+  id: '/admin/$idAdmin',
+  path: '/admin/$idAdmin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileCreditStatusIndexRoute =
+  ProfileCreditStatusIndexRouteImport.update({
+    id: '/profile/credit-status/',
+    path: '/profile/credit-status/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProfileCreditRequestIndexRoute =
+  ProfileCreditRequestIndexRouteImport.update({
+    id: '/profile/credit-request/',
+    path: '/profile/credit-request/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const KycIndentityVerificationIndexRoute =
+  KycIndentityVerificationIndexRouteImport.update({
+    id: '/kyc/indentity-verification/',
+    path: '/kyc/indentity-verification/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const KycFormIndexRoute = KycFormIndexRouteImport.update({
+  id: '/kyc/form/',
+  path: '/kyc/form/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KycConfirmationIndexRoute = KycConfirmationIndexRouteImport.update({
+  id: '/kyc/confirmation/',
+  path: '/kyc/confirmation/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRequestsIdRequestRoute = AdminRequestsIdRequestRouteImport.update({
+  id: '/admin/requests/$idRequest',
+  path: '/admin/requests/$idRequest',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/profile': typeof ProfileRoute
+  '/admin/$idAdmin': typeof AdminIdAdminRoute
+  '/profile/$idUser': typeof ProfileIdUserRoute
+  '/admin/requests/$idRequest': typeof AdminRequestsIdRequestRoute
+  '/kyc/confirmation': typeof KycConfirmationIndexRoute
+  '/kyc/form': typeof KycFormIndexRoute
+  '/kyc/indentity-verification': typeof KycIndentityVerificationIndexRoute
+  '/profile/credit-request': typeof ProfileCreditRequestIndexRoute
+  '/profile/credit-status': typeof ProfileCreditStatusIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/profile': typeof ProfileRoute
+  '/admin/$idAdmin': typeof AdminIdAdminRoute
+  '/profile/$idUser': typeof ProfileIdUserRoute
+  '/admin/requests/$idRequest': typeof AdminRequestsIdRequestRoute
+  '/kyc/confirmation': typeof KycConfirmationIndexRoute
+  '/kyc/form': typeof KycFormIndexRoute
+  '/kyc/indentity-verification': typeof KycIndentityVerificationIndexRoute
+  '/profile/credit-request': typeof ProfileCreditRequestIndexRoute
+  '/profile/credit-status': typeof ProfileCreditStatusIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/profile': typeof ProfileRoute
+  '/admin/$idAdmin': typeof AdminIdAdminRoute
+  '/profile/$idUser': typeof ProfileIdUserRoute
+  '/admin/requests/$idRequest': typeof AdminRequestsIdRequestRoute
+  '/kyc/confirmation/': typeof KycConfirmationIndexRoute
+  '/kyc/form/': typeof KycFormIndexRoute
+  '/kyc/indentity-verification/': typeof KycIndentityVerificationIndexRoute
+  '/profile/credit-request/': typeof ProfileCreditRequestIndexRoute
+  '/profile/credit-status/': typeof ProfileCreditStatusIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/profile'
+  fullPaths:
+    | '/'
+    | '/admin/$idAdmin'
+    | '/profile/$idUser'
+    | '/admin/requests/$idRequest'
+    | '/kyc/confirmation'
+    | '/kyc/form'
+    | '/kyc/indentity-verification'
+    | '/profile/credit-request'
+    | '/profile/credit-status'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/profile'
-  id: '__root__' | '/' | '/profile'
+  to:
+    | '/'
+    | '/admin/$idAdmin'
+    | '/profile/$idUser'
+    | '/admin/requests/$idRequest'
+    | '/kyc/confirmation'
+    | '/kyc/form'
+    | '/kyc/indentity-verification'
+    | '/profile/credit-request'
+    | '/profile/credit-status'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin/$idAdmin'
+    | '/profile/$idUser'
+    | '/admin/requests/$idRequest'
+    | '/kyc/confirmation/'
+    | '/kyc/form/'
+    | '/kyc/indentity-verification/'
+    | '/profile/credit-request/'
+    | '/profile/credit-status/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ProfileRoute: typeof ProfileRoute
+  AdminIdAdminRoute: typeof AdminIdAdminRoute
+  ProfileIdUserRoute: typeof ProfileIdUserRoute
+  AdminRequestsIdRequestRoute: typeof AdminRequestsIdRequestRoute
+  KycConfirmationIndexRoute: typeof KycConfirmationIndexRoute
+  KycFormIndexRoute: typeof KycFormIndexRoute
+  KycIndentityVerificationIndexRoute: typeof KycIndentityVerificationIndexRoute
+  ProfileCreditRequestIndexRoute: typeof ProfileCreditRequestIndexRoute
+  ProfileCreditStatusIndexRoute: typeof ProfileCreditStatusIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -65,12 +159,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profile/$idUser': {
+      id: '/profile/$idUser'
+      path: '/profile/$idUser'
+      fullPath: '/profile/$idUser'
+      preLoaderRoute: typeof ProfileIdUserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/$idAdmin': {
+      id: '/admin/$idAdmin'
+      path: '/admin/$idAdmin'
+      fullPath: '/admin/$idAdmin'
+      preLoaderRoute: typeof AdminIdAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile/credit-status/': {
+      id: '/profile/credit-status/'
+      path: '/profile/credit-status'
+      fullPath: '/profile/credit-status'
+      preLoaderRoute: typeof ProfileCreditStatusIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile/credit-request/': {
+      id: '/profile/credit-request/'
+      path: '/profile/credit-request'
+      fullPath: '/profile/credit-request'
+      preLoaderRoute: typeof ProfileCreditRequestIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kyc/indentity-verification/': {
+      id: '/kyc/indentity-verification/'
+      path: '/kyc/indentity-verification'
+      fullPath: '/kyc/indentity-verification'
+      preLoaderRoute: typeof KycIndentityVerificationIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kyc/form/': {
+      id: '/kyc/form/'
+      path: '/kyc/form'
+      fullPath: '/kyc/form'
+      preLoaderRoute: typeof KycFormIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kyc/confirmation/': {
+      id: '/kyc/confirmation/'
+      path: '/kyc/confirmation'
+      fullPath: '/kyc/confirmation'
+      preLoaderRoute: typeof KycConfirmationIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/requests/$idRequest': {
+      id: '/admin/requests/$idRequest'
+      path: '/admin/requests/$idRequest'
+      fullPath: '/admin/requests/$idRequest'
+      preLoaderRoute: typeof AdminRequestsIdRequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ProfileRoute: ProfileRoute,
+  AdminIdAdminRoute: AdminIdAdminRoute,
+  ProfileIdUserRoute: ProfileIdUserRoute,
+  AdminRequestsIdRequestRoute: AdminRequestsIdRequestRoute,
+  KycConfirmationIndexRoute: KycConfirmationIndexRoute,
+  KycFormIndexRoute: KycFormIndexRoute,
+  KycIndentityVerificationIndexRoute: KycIndentityVerificationIndexRoute,
+  ProfileCreditRequestIndexRoute: ProfileCreditRequestIndexRoute,
+  ProfileCreditStatusIndexRoute: ProfileCreditStatusIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

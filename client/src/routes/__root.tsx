@@ -8,9 +8,7 @@ export const Route = createRootRoute({
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
+        <li></li>
       </ul>
       <Outlet />,
     </>

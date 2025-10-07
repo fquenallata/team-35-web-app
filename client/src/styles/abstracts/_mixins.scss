@@ -1,0 +1,68 @@
+@mixin flex-container(
+  $flex-direction: row,
+  $justify-content: flex-start,
+  $align-items: stretch
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin flex-grid(
+  $columns: 2,
+  $gap: 20px,
+  $flex-direction: row,
+  $justify-content: flex-start,
+  $align-items: stretch
+) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  margin: -($gap / 2);
+
+  > * {
+    flex: 0 0 calc(100% / #{$columns} - #{$gap});
+    margin: $gap / 2;
+  }
+}
+
+@mixin image(
+  $imgpath,
+  $height,
+  $width: 100%,
+  $display: inline-block,
+  $background-size: contain,
+  $background-position: center
+) {
+  background-image: url("#{$imgpath}");
+  background-position: $background-position;
+  background-repeat: no-repeat;
+  background-size: $background-size;
+  content: "";
+  display: $display;
+  height: $height;
+  width: $width;
+}
+
+@mixin position(
+  $position,
+  $top: auto,
+  $right: auto,
+  $bottom: auto,
+  $left: auto
+) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin media-query($max-width) {
+  @media only screen and (max-width: $max-width) {
+    @content;
+  }
+}

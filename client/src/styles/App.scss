@@ -1,0 +1,69 @@
+//*abstracts*//
+@use './abstracts/variables';
+@use './abstracts/mixins';
+
+//*base*//
+@use './base/base';
+@use './base/resets';
+
+//*theme*//
+// [data-theme='dark'] {
+// 	--f-letter: black;
+// 	--square: #ff007f;
+// 	--text-color: #ececec;
+// 	--strong-color: #ececec;
+// 	--background-color: #2e313a;
+// 	--box-shadow-toggle: rgba(255, 255, 255, 0.5);
+// 	--text-light: rgba(236, 236, 236, 1);
+// 	--subtitle-firstLetter: #ff007f;
+// 	--subtitle-text: black;
+// }
+
+html {
+	scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+	width: 10px; /* Puedes ajustar este valor según tu preferencia */
+	height: 100%;
+	background-color: rgb(202, 202, 202);
+}
+
+/* Color del thumb */
+::-webkit-scrollbar-thumb {
+	background-color: var(
+		--color-first
+	); /* Puedes ajustar este color según tu preferencia */
+}
+
+main {
+	display: flex;
+	flex-direction: row;
+	background-image: var(--nav-background);
+	background-size: 100% 100%;
+	height: auto;
+	background-attachment: fixed;
+
+	#content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding-left: 260px;
+
+		.toggles {
+			display: flex;
+			flex-direction: row;
+			width: 150px;
+			margin-right: 20px;
+			justify-content: space-between;
+			position: fixed;
+			top: 0;
+			right: 0;
+			padding: 20px;
+			z-index: 30;
+		}
+	}
+
+	@include mixins.media-query(1000px) {
+		flex-direction: column;
+	}
+}
